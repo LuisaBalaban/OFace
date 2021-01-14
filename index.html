@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OFace</title>
+  <link rel="stylesheet" href="css/bootstrap-grid.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400&family=Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+  <audio id='mySound' src="./audio/hover1.mp3" preload="auto"></audio>
+  <audio id='mySound1' src="./audio/hover2.mp3" preload="auto"></audio>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#video">Picture</a></li>
+      <li class="empty"></li>
+      <li><a href="#filters">Reshape</a></li>
+      <li class="empty"></li>
+      <li><a href="#download">Video</a></li>
+      <li class="empty"></li>
+      <li><a href="#process">Process </a></li>
+    </ul>
+  </nav>
+  <header id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          
+          <h1>Add filters to your images!</h1>
+          <h3>Take a picture</h3>
+          <button class="btns" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"
+            id="startButton">Snap image</button>
+          <label class="input-file">
+            <input type="file" id="imageInput" accept="image/*">
+          <b>upload from your device</b>
+          </label>
+         
+        </div>
+        <div class="col-sm">
+          <video autoplay="true" id="video"> </video>
+          <h3 id="recVideo" style="margin-top: 20px;
+          margin-left: 140px;">Record a video</h3>
+          <div class="row">
+            <div class="col-sm">
+              <div class="row">
+                
+          <button class="btns" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"
+          id="startRecButton">Start</button>
+          <div class="row">
+          <a class="btns" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"
+          id="stopButton" href="#videoFilters"  style="border:1px solid #c3c3c3; border-style:solid;
+          border-radius: 30px;
+          border-color: rgb(0, 0, 0);
+            border-width: 2px;
+           text-align: center;
+           font-size: 30px;">Stop</a>
+          </div>
+          </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+
+  </header>
+  <section id="filters">
+    <div class="container">
+      <h3></br>Add filters</h3>
+      <div class="row">
+        <div class="col-sm">
+          <div class="row">
+            <button id="redButton" class="roundBtn" onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">Red</button>
+            <button id="rgbButton" class="roundBtn" onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">Split</button>
+            <button id="randomButton" class="roundBtn" onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">Pink</button>
+            <button id="neonButton" class="roundBtn" onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">Neon</button>
+
+              <button class="btn btn-default videoeffects"  id="pixelButtonCanvas" data-effect="Pixel"  onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">Pixel</button>
+            
+              <button class="btn btn-default videoeffects"  id="invertButton"  data-effect="invert" onmouseover="PlaySound('mySound1')"
+                onmouseout="StopSound('mySound1')">Invert</button>
+                <button class="btn btn-default videoeffects"  id="BlackWhiteButtonCanvas" data-effect="blackWhite"  onmouseover="PlaySound('mySound1')"
+                onmouseout="StopSound('mySound1')">BlackWhite</button>
+           
+                <button class="btn btn-default videoeffects"  id="frameButton" data-effect="Circle"  onmouseover="PlaySound('mySound1')"
+                onmouseout="StopSound('mySound1')">Frame</button>
+            
+          </div>
+          <button class="btns" id="useFilter">Use filter</button>
+        </div>
+        <div class="col-sm">
+
+          <canvas width="500" height="400" id="canvas" style="border:1px solid #c3c3c3; border-style:solid;
+          border-radius: 20px;
+          border-color: rgb(37, 35, 145);
+            border-width: 2px;"></canvas>
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <h3>Add figures</h3>
+      <div class="row">
+          <div class="col-sm">
+            <canvas id="canvasGallery" width="500" height="400" style="border:1px solid #c3c3c3; border-style:solid;
+            border-radius: 20px;
+            border-color: rgb(37, 35, 145);
+              border-width: 2px;"></canvas>
+
+            <!-- <canvas id="canvas3" width="500" height="400"></canvas> -->
+
+
+
+          </div>
+          <div class="multipleBtns">
+            <div class="row">
+              <div class="col-sm">
+                <div class="row">
+                  <button id="drawButton" class="roundBtn" onmouseover="PlaySound('mySound1')"
+                    onmouseout="StopSound('mySound1')">Lines</button>
+                  <button id="flowButton" class="roundBtn" onmouseover="PlaySound('mySound1')"
+                    onmouseout="StopSound('mySound1')">Flows</button>
+                  <button id="drawFreeButton" class="roundBtn" onmouseover="PlaySound('mySound1')"
+                    onmouseout="StopSound('mySound1')">Free draw</button>
+                  <button id="colorButton" class="roundBtn" onmouseover="PlaySound('mySound1')"
+                    onmouseout="StopSound('mySound1')">Color</button>
+                </div>
+                <button id="addShapes" class="btns">Add shapes</button>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="download">
+    <div class="container">  
+      <div class="row">
+        <div class="col-sm">
+        </br>
+      </br>
+    </br>
+  
+
+          <h3> </br> Your picture is now ready!</h3>
+          <a id="downloadBtn" class="btns" download="image.jpg"  style="border:1px solid #c3c3c3; border-style:solid;
+          border-radius: 20px;
+          border-color: rgb(0, 0, 0);
+            border-width: 2px;
+           text-align: center;">Download</a>
+       
+        </div>
+        <div class="col-sm">
+        <img id="photo" width="500" height="400" style="border:1px solid #c3c3c3; border-style:solid;
+        border-radius: 20px;
+        border-color: rgb(37, 35, 145);
+          border-width: 2px;">
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  <section id="videoFilters">
+    <!-- "/id="videoFilters" -->
+    <div class="container">
+      <h3></br>Add filters to your video</h3>
+      <div class="row">
+        <div class="col-sm" id="video2div">
+          <canvas class= "videoeffects" id="canvasVideo" style="border:1px solid #c3c3c3; border-style:solid;
+          border-radius: 20px;
+          border-color: rgb(37, 35, 145);
+            border-width: 2px;"></canvas>
+          
+        </div>
+        <div class="col-sm">
+
+          <div class="row">
+           
+            <button class="btn btn-default videoeffects"  id="rgbButton"  data-effect="normal" onmouseover="PlaySound('mySound1')"
+            onmouseout="StopSound('mySound1')">Frame</button>
+            <button class="btn btn-default videoeffects"  id="neonButton" data-effect="Pixel"  onmouseover="PlaySound('mySound1')"
+            onmouseout="StopSound('mySound1')">Pixel</button>
+            <button  class="btn btn-default videoeffects" id="sepiaButton"  data-effect="rotation" onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">Rotation</button>
+              <button class="btn btn-default videoeffects"  id="randomButton"  data-effect="neon" onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">Neon</button>
+            <button class="btn btn-default videoeffects"  id="randomButton"  data-effect="invert" onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">Invert</button>
+              <button class="btn btn-default videoeffects"  id="neonButton" data-effect="blackWhite"  onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">BlackWhite</button>
+              <button class="btn btn-default videoeffects"  id="randomButton"  data-effect="RGB" onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">RGB</button>
+              <button class="btn btn-default videoeffects"  id="neonButton" data-effect="Circle"  onmouseover="PlaySound('mySound1')"
+              onmouseout="StopSound('mySound1')">Words</button>
+          
+          </div>
+          <button class="btns" id="downloadButton">Finish editing</button>
+        </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+ 
+  <footer id="process">
+    <h2>See the process</h2>
+    <h3>Photo</h3>
+    <img id="photo1"  width=320 height=240 >
+    <img id="photo2"  width=320 height=240 >
+    <canvas id="canvas3" width=320 height=240 style=" border-style:solid;
+    border-radius: 20px;
+    border-color: rgb(37, 35, 145);
+      border-width: 2px;"></canvas>
+    <canvas id="canvasBack"></canvas>
+    <h3>Video</h3>
+    <video autoplay="true" id="video2" width=520 height=395 controls loop > </video>
+    <canvas id="canvasVideoFinal" width=520 height=395 controls loop></canvas>
+    <p>You can always go back and choose more photos to edit!</p>
+  </footer>
+</section>
+</body>
+<script src="js/script.js"></script>
+
+</html>
